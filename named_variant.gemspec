@@ -23,11 +23,12 @@ Gem::Specification.new do |spec|
       "public gem pushes."
   end
 
-  spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  spec.files = Dir["{lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", "~> 5.0"
 
   spec.add_development_dependency "onkcop", "~> 0.53"
   spec.add_development_dependency "rspec-rails"
   spec.add_development_dependency "sqlite3"
+  spec.add_development_dependency "mini_magick"
 end
