@@ -1,8 +1,8 @@
-require 'spec_helper'
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../dummy/config/environment', __FILE__)
+require "spec_helper"
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("dummy/config/environment", __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-require 'rspec/rails'
+require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 begin
@@ -14,12 +14,12 @@ end
 
 module UserHelper
   def create_user_with_attached_avater
-    user = User.create!(name: 'hoge')
+    user = User.create!(name: "hoge")
 
     blob = nil
-    File.open(File.expand_path('fixtures/sample.jpg', __dir__)) do |f|
+    File.open(File.expand_path("fixtures/sample.jpg", __dir__)) do |f|
       blob = ActiveStorage::Blob.create_after_upload!(
-        io: f, filename: 'sample.jpg'
+        io: f, filename: "sample.jpg",
       )
     end
     user.avater.attach blob
@@ -27,7 +27,6 @@ module UserHelper
     user
   end
 end
-
 
 RSpec.configure do |config|
   config.include UserHelper
@@ -57,4 +56,3 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
-
