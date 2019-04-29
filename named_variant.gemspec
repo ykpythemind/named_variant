@@ -10,18 +10,9 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Yukito Ito"]
   spec.email       = ["yukibukiyou@gmail.com"]
   spec.homepage    = "https://github.com/ykpythemind/named_variant"
-  spec.summary     = "Make ActiveStorage's variant named and configurable"
-  spec.description = ""
+  spec.summary     = "Named ActiveStorage's variant"
+  spec.description = "Make ActiveStorage's variant named and configurable"
   spec.license     = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
 
   spec.files = Dir["{lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
