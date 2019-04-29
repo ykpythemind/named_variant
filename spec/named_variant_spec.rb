@@ -41,4 +41,12 @@ RSpec.describe "named variant" do
       end
     end
   end
+
+  describe "ActiveRecord macro" do
+    it do
+      expect(NamedVariant.named_variants["User/xsmall"]).to be nil
+      User.send(:variant, :xsmall, resize: "20x20")
+      expect(NamedVariant.named_variants["User/xsmall"]).not_to be nil
+    end
+  end
 end
