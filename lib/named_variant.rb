@@ -22,7 +22,7 @@ module NamedVariant
   end
 
   module ActiveRecordExtension
-    def variant(name, **opts)
+    def variant_name(name, **opts)
       ::NamedVariant.add_variant("#{self}/#{name}", opts) ## key looks like: User/xsmall
     end
   end

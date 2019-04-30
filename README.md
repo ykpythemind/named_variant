@@ -22,7 +22,7 @@ It's annoying, and sometimes not DRY. NamedVarient gives a solution.
 class User < ActiveRecord::Base
   has_one_attached :avatar
 
-  variant :monochrome, resize: "100x100", monochrome: true, flip: "-90"
+  variant_name :monochrome, resize: "100x100", monochrome: true, flip: "-90"
 end
 ```
 
