@@ -5,7 +5,7 @@ module NamedVariant
     end
 
     config.after_initialize do
-      ActiveStorage::Attached.prepend ::NamedVariant::VariantExtension
+      ActiveStorage::Attached::One.prepend ::NamedVariant::VariantExtension
     end
   end
 end

@@ -58,4 +58,12 @@ RSpec.describe "named variant" do
       expect(NamedVariant.named_variants["User/xsmall"]).not_to be nil
     end
   end
+
+  describe "has_many_attached" do
+    let(:user) { create_user_with_attached_images }
+
+    it "can call variant" do
+      expect(user.images.first.variant(:xsmall)).to be_a ActiveStorage::Variant
+    end
+  end
 end

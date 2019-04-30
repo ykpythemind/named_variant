@@ -8,7 +8,7 @@ module NamedVariant
     # https://github.com/rails/rails/blob/3c823271af52a61e825123def170fe2187057577/activestorage/app/models/active_storage/blob/representable.rb#L28
     def variant(args)
       if args.is_a?(Symbol)
-        # self is ActiveStorage::Attached
+        # self is ActiveStorage::Attached::One
         transformation_args =
           ::NamedVariant.find_named_variant_for(
             klass: self.record.class,
