@@ -13,7 +13,7 @@ end
 and view
 
 ```ruby
-= image_tag(avatar.variant(resize: "100x100", monochrome: true, flip: "-90").processed)
+= image_tag(user.avatar.variant(resize: "100x100", monochrome: true, flip: "-90").processed)
 ```
 
 It's annoying, and sometimes not DRY. NamedVarient gives a solution.
@@ -27,10 +27,8 @@ end
 ```
 
 ```ruby
-= image_tag(avatar.variant(:monochrome).processed)
+= image_tag(user.avatar.variant(:monochrome).processed)
 ```
-
-## Usage
 
 ## Installation
 
