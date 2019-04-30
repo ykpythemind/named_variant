@@ -1,18 +1,18 @@
 require "rails_helper"
 
 RSpec.describe "named variant" do
-  describe "User has one attached avater" do
-    let(:user) { create_user_with_attached_avater }
+  describe "User has one attached avatar" do
+    let(:user) { create_user_with_attached_avatar }
 
-    it "avater file is attached" do
-      expect(user.avater.attached?).to eq true
+    it "avatar file is attached" do
+      expect(user.avatar.attached?).to eq true
     end
   end
 
   describe "calling ActiveStorage::Blob#variant and process" do
-    let(:user) { create_user_with_attached_avater }
+    let(:user) { create_user_with_attached_avatar }
 
-    subject { user.avater.variant(args).processed }
+    subject { user.avatar.variant(args).processed }
     before do
       variant = NamedVariant::Variant.new(resize: "200x200")
 

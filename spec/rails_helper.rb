@@ -13,7 +13,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 module UserHelper
-  def create_user_with_attached_avater
+  def create_user_with_attached_avatar
     user = User.create!(name: "hoge")
 
     blob = nil
@@ -22,7 +22,7 @@ module UserHelper
         io: f, filename: "sample.jpg",
       )
     end
-    user.avater.attach blob
+    user.avatar.attach blob
 
     user
   end
