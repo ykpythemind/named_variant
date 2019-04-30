@@ -26,10 +26,32 @@ module UserHelper
 
     user
   end
+
+  def create_user_with_attached_images
+    user = User.create!(name: "hoge")
+
+    blob = nil
+    File.open(File.expand_path("fixtures/sample.jpg", __dir__)) do |f|
+      blob = ActiveStorage::Blob.create_after_upload!(io: f, filename: "sample.jpg")
+    end
+    user.images.attach blob
+
+    File.open(File.expand_path("fixtures/sample.jpg", __dir__)) do |f|
+      blob = ActiveStorage::Blob.create_after_upload!(io: f, filename: "sample.jpg")
+    end
+    user.images.attach blob
+
+    user
+  end
 end
 
 RSpec.configure do |config|
   config.include UserHelper
+
+  config.after(:all) do
+    # clean activestorage
+    FileUtils.rm_rf Dir[Rails.root.join("tmp", "storage")]
+  end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

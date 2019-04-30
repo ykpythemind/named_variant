@@ -9,6 +9,15 @@ RSpec.describe "named variant" do
     end
   end
 
+  describe "User has many attached images" do
+    let(:user) { create_user_with_attached_images }
+
+    it "image files are attached" do
+      expect(user.images.attached?).to eq true
+      expect(user.images.count).to eq 2
+    end
+  end
+
   describe "calling ActiveStorage::Blob#variant and process" do
     let(:user) { create_user_with_attached_avatar }
 
