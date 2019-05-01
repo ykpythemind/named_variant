@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "named variant" do
+RSpec.describe do
   describe "User has one attached avatar" do
     let(:user) { create_user_with_attached_avatar }
 
@@ -22,13 +22,8 @@ RSpec.describe "named variant" do
     let(:user) { create_user_with_attached_avatar }
 
     subject { user.avatar.variant(args).processed }
-    before do
-      variant = NamedVariant::Variant.new(resize: "200x200")
 
-      allow(NamedVariant).to receive(:find_named_variant_for).and_return(variant)
-    end
-
-    context do
+    context 'original variant' do
       let(:args) { { resize: "200x200" } }
       it "Original variant calling is available" do
         is_expected.to be_a ActiveStorage::Variant
@@ -39,14 +34,23 @@ RSpec.describe "named variant" do
       end
     end
 
-    context do
-      let(:args) { :small }
+    context "named variant" do
+      let(:args) { :medium }
+
       it "Named variant calling is available" do
         is_expected.to be_a ActiveStorage::Variant
       end
 
       specify "options" do
-        expect(subject.variation.transformations).to eq({ resize: "200x200" })
+        expect(subject.variation.transformations).to eq({ resize: "500x500", auto_orient: true })
+      end
+    end
+
+    context "undefined variant" do
+      let(:args) { :small }
+
+      it "raises VariantNotFound" do
+        expect { subject }.to raise_error(NamedVariant::VariantNotFound)
       end
     end
   end

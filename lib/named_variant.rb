@@ -9,12 +9,8 @@ module NamedVariant
     def variant(args)
       if args.is_a?(Symbol)
         # self is ActiveStorage::Attached::One
-        transformation_args =
-          ::NamedVariant.find_named_variant_for(
-            klass: self.record.class,
-            sym: args
-        ).to_h
-        return super(transformation_args)
+        named_variant = ::NamedVariant.find_named_variant_for(klass: self.record.class, sym: args) || raise(VariantNotFound)
+        return super(named_variant.to_h)
       end
 
       super
@@ -34,6 +30,9 @@ module NamedVariant
 
   def self.add_variant(name, opts)
     named_variants[name.to_s] = Variant.new(opts)
+  end
+
+  class VariantNotFound < StandardError
   end
 end
 
