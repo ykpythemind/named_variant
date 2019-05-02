@@ -2,7 +2,7 @@
 
 Make ActiveStorage's variant named and configurable.
 
-e.g. model
+Usual process is
 
 ```ruby
 class User < ActiveRecord::Base
@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-and view
+and view.
 
 ```ruby
 = image_tag(user.avatar.variant(resize: "100x100", monochrome: true, flip: "-90").processed)
@@ -28,6 +28,7 @@ end
 
 ```ruby
 = image_tag(user.avatar.variant(:monochrome).processed)
+# only user's attachment can call `monochrome` variant.
 ```
 
 ## Installation
