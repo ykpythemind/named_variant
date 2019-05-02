@@ -2,7 +2,8 @@ PATH
   remote: .
   specs:
     named_variant (0.1.0)
-      rails (~> 5.2)
+      activestorage
+      activesupport (~> 5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -164,6 +165,7 @@ DEPENDENCIES
   mini_magick
   named_variant!
   onkcop (~> 0.53)
+  rails (~> 5.2)
   rspec-rails
   sqlite3
 
