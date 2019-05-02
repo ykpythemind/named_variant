@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    named_variant (0.1.0)
+    named_variant (0.1.1)
       activestorage
       activesupport (~> 5.0)
 
