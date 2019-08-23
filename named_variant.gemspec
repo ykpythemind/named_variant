@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "activestorage"
-  spec.add_dependency "activesupport", "~> 5.0"
+  spec.add_dependency "activesupport"
 
   spec.add_development_dependency "mini_magick"
   spec.add_development_dependency "onkcop", "~> 0.53"

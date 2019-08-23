@@ -3,7 +3,7 @@ PATH
   specs:
     named_variant (0.1.1)
       activestorage
-      activesupport (~> 5.0)
+      activesupport
 
 GEM
   remote: https://rubygems.org/
