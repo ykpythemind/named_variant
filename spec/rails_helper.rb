@@ -48,6 +48,12 @@ end
 RSpec.configure do |config|
   config.include UserHelper
 
+  config.before(:all) do
+    puts "*" * 55
+    puts "spec ActiveStorage: #{ActiveStorage.version} / Rails: #{Rails.version} / Ruby: #{RUBY_VERSION}"
+    puts "*" * 55
+  end
+
   config.after(:all) do
     # clean activestorage
     FileUtils.rm_rf Dir[Rails.root.join("tmp", "storage")]

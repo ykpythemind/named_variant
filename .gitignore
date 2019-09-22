@@ -8,3 +8,4 @@ spec/dummy/storage/
 spec/dummy/tmp/
 
 spec/examples.txt
+gemfiles/*.lock

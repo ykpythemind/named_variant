@@ -23,7 +23,7 @@ RSpec.describe do
 
     subject { user.avatar.variant(args).processed }
 
-    context 'original variant' do
+    context "original variant" do
       let(:args) { { resize: "200x200" } }
       it "Original variant calling is available" do
         is_expected.to be_a ActiveStorage::Variant
