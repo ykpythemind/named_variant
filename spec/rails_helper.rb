@@ -12,6 +12,8 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+Rails.application.eager_load!
+
 module UserHelper
   def create_user_with_attached_avatar
     user = User.create!(name: "hoge")
