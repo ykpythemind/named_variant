@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activestorage"
   spec.add_dependency "activesupport"
 
-  spec.add_development_dependency "mini_magick"
+  spec.add_development_dependency "image_processing"
   spec.add_development_dependency "onkcop", "~> 0.53"
   spec.add_development_dependency "rails", "~> 5.2"
   spec.add_development_dependency "rspec-rails"

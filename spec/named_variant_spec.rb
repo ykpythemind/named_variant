@@ -23,7 +23,7 @@ RSpec.describe do
 
     subject { user.avatar.variant(args).processed }
 
-    context 'original variant' do
+    context "original variant" do
       let(:args) { { resize: "200x200" } }
       it "Original variant calling is available" do
         is_expected.to be_a ActiveStorage::Variant
@@ -55,11 +55,9 @@ RSpec.describe do
     end
   end
 
-  describe "ActiveRecord macro" do
+  describe "store variant configuration to NamedVariant.named_variants" do
     it do
-      expect(NamedVariant.named_variants["User/xsmall"]).to be nil
-      User.send(:variant_name, :xsmall, resize: "20x20")
-      expect(NamedVariant.named_variants["User/xsmall"]).not_to be nil
+      expect(NamedVariant.named_variants["User/xsmall"]).not_to be_nil
     end
   end
 

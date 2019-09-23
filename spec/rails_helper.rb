@@ -12,6 +12,8 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+Rails.application.eager_load!
+
 module UserHelper
   def create_user_with_attached_avatar
     user = User.create!(name: "hoge")
@@ -47,6 +49,12 @@ end
 
 RSpec.configure do |config|
   config.include UserHelper
+
+  config.before(:all) do
+    puts "*" * 55
+    puts "spec ActiveStorage: #{ActiveStorage.version} / Rails: #{Rails.version} / Ruby: #{RUBY_VERSION}"
+    puts "*" * 55
+  end
 
   config.after(:all) do
     # clean activestorage
