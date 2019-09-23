@@ -57,7 +57,7 @@ RSpec.describe do
 
   describe "store variant configuration to NamedVariant.named_variants" do
     it do
-      expect(NamedVariant.named_variants["User/xsmall"]).not_to be nil
+      expect(NamedVariant.named_variants["User/xsmall"]).not_to be_nil
     end
   end
 
