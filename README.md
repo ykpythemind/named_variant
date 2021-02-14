@@ -1,4 +1,6 @@
-# NamedVariant
+# NamedVariant [DEPRECATED]
+
+This gem is deprecated due to https://github.com/rails/rails/pull/39135 
 
 [![Gem Version](https://badge.fury.io/rb/named_variant.svg)](https://badge.fury.io/rb/named_variant)
 [![Build Status](https://github.com/ykpythemind/named_variant/workflows/CI/badge.svg)](https://github.com/ykpythemind/named_variant/actions)
